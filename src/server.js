@@ -2,6 +2,7 @@
 
 const express = require('express');
 const morgan = require('morgan');
+const path = require('path');
 
 const app = express();
 
@@ -12,17 +13,19 @@ const PORT = 3000;
 const TEXT = 'Hello World'
 
 app.get('/', (req, res) => {
-	res.sendFile(path.join(__dirname, '.', 'index.html'));
+    console.log(__dirname);
+    console.log(path.join(__dirname, '.', 'index.html'))
+    res.sendFile(path.join(__dirname, '.', 'index.html'));
 });
 
 app.get('/login', (req, res) => {
-	// TODO
+    // TODO
 });
 
 app.get('/hello_world', (req, res) => {
-	res.json(TEXT);
+    res.json(TEXT);
 });
 
 app.listen(PORT, function () {
-	console.log(`Server listening PORT ${PORT}`);
+    console.log(`Server listening PORT ${PORT}`);
 });

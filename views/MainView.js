@@ -1,11 +1,11 @@
-import {HelloWorld} from "../models/HelloWorld.js";
+import {HelloWorld} from '../models/HelloWorld.js';
 
 export class MainView {
-    constructor() {
-    }
-
     render() {
         const root = document.querySelector('#root');
+        if (!root) {
+            return;
+        }
 
         const container = document.createElement('div');
         const headingElement = document.createElement('h3');

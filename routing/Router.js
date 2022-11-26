@@ -1,8 +1,4 @@
-import {MainController} from '../controllers/MainController.js';
-
-const routes = {
-    '/': MainController,
-}
+import {ROUTES} from '../core/urls.js';
 
 export class Router {
     constructor() {
@@ -28,7 +24,7 @@ export class Router {
     }
 
     invokeController() {
-        const ControllerClass = routes[window.location.pathname];
+        const ControllerClass = ROUTES[window.location.pathname];
         const controller = new ControllerClass();
         controller.process();
     }
