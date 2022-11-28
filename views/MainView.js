@@ -1,21 +1,29 @@
-import {HelloWorld} from '../models/HelloWorld.js';
-
 export class MainView {
+    constructor() {
+        this.text = null;
+        this.container = null;
+    }
+
     render() {
         const root = document.querySelector('#root');
         if (!root) {
             return;
         }
 
-        const container = document.createElement('div');
+        this.container = document.createElement('div');
+        this.createTextElement();
+
+        root.append(this.container);
+    }
+
+    updateText(text) {
+        this.text = text;
+        this.createTextElement();
+    }
+
+    createTextElement() {
         const headingElement = document.createElement('h3');
-
-        const helloWorld = new HelloWorld();
-        helloWorld.fetchData().then(() => {
-            headingElement.textContent = helloWorld.text;
-        });
-
-        container.appendChild(headingElement);
-        root.append(container);
+        headingElement.textContent = this.text;
+        this.container.appendChild(headingElement);
     }
 }

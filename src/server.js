@@ -13,8 +13,6 @@ const PORT = 3000;
 const TEXT = 'Hello World'
 
 app.get('/', (req, res) => {
-    console.log(__dirname);
-    console.log(path.join(__dirname, '.', 'index.html'))
     res.sendFile(path.join(__dirname, '.', 'index.html'));
 });
 

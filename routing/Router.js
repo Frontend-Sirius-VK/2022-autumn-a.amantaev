@@ -1,4 +1,4 @@
-import {ROUTES} from '../core/urls.js';
+import {ROUTES} from '../core/routes.js';
 
 export class Router {
     constructor() {

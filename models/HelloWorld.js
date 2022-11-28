@@ -1,5 +1,5 @@
 export class HelloWorld {
-    constructor(text = 'Text') {
+    constructor(text= null ) {
         this.text = text;
     }
 
