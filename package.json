@@ -1,0 +1,23 @@
+{
+  "name": "2022-autumn-a.amantaev",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Frontend-Sirius-VK/2022-autumn-a.amantaev.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Frontend-Sirius-VK/2022-autumn-a.amantaev/issues"
+  },
+  "dependencies": {
+    "express": "^4.18.1",
+    "morgan": "1.10.0"
+  },
+  "homepage": "https://github.com/Frontend-Sirius-VK/2022-autumn-a.amantaev#readme"
+}
