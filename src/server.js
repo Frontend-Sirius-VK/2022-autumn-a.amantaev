@@ -5,6 +5,7 @@ const morgan = require('morgan');
 const path = require('path');
 
 const app = express();
+const db = require('./queries')
 
 app.use(morgan('dev'));
 app.use(express.static('.'));
@@ -18,6 +19,11 @@ app.get('/', (req, res) => {
 
 app.get('/login', (req, res) => {
     // TODO
+});
+
+app.get('/posts', async (req, res) => {
+    const posts = await db.getPosts();
+    res.json(posts);
 });
 
 app.get('/hello_world', (req, res) => {
