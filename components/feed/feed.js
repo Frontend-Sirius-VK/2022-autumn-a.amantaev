@@ -1,11 +1,12 @@
 import {Post} from "../post/post.js";
+import EventBus from "../../utils/eventBus.js";
 
 export class Feed {
     constructor(parent) {
         this.parent = parent;
         this.posts = null;
-
-        // EventBus.on('person:got-info', this.update.bind(this));
+        // EventBus.on('posts:got-info', this.updatePosts().bind(this));
+        // eventBus пока еще не работает(
     }
 
     render(container) {
@@ -23,14 +24,6 @@ export class Feed {
 
         container.appendChild(feed);
     }
-    //
-    // update(data = {}) {
-    //     if (!data || !Object.keys(data).length) {
-    //         return;
-    //     }
-    //
-    //     this.summary.update(`${data.name} ${data.surname}`, data.position);
-    // }
 
     updatePosts(data) {
         if (!data) {

@@ -2,7 +2,6 @@ export class Post {
     constructor(parent, postModel) {
         this.parent = parent;
         this.postModel = postModel;
-        console.log(postModel)
     }
 
     render() {
@@ -22,9 +21,11 @@ export class Post {
         header.append(headerAuthor, headerDate);
 
         const mainText = document.createElement('div');
+        mainText.classList.add('text');
         mainText.textContent = text;
 
         const content = document.createElement('div');
+        content.classList.add('video-container');
         const videoLink = document.createElement('a');
         videoLink.classList.add('video-link');
         videoLink.href = video_url;
@@ -44,7 +45,41 @@ export class Post {
         videoContent.append(videoTitle, videoSubtitle);
         content.append(videoLink, videoContent);
 
-        post.append(header, mainText, content);
+        const ratingContent = document.createElement('div');
+        ratingContent.classList.add('rating-content');
+        const likesBlock = document.createElement('div');
+        likesBlock.classList.add('likes-block');
+        const likesInput = document.createElement('input');
+        likesInput.classList.add('likes-input')
+        likesInput.type = 'image';
+        likesInput.src = '';
+        const likesCount = document.createElement('a');
+        likesCount.classList.add('likes-count');
+        likesCount.textContent = likes;
+        likesBlock.append(likesInput, likesCount);
+        const dislikesBlock = document.createElement('div');
+        dislikesBlock.classList.add('dislikes-block');
+        const dislikesInput = document.createElement('input');
+        dislikesInput.classList.add('dislikes-input')
+        dislikesInput.type = 'image';
+        dislikesInput.src = '';
+        const dislikesCount = document.createElement('a');
+        dislikesCount.classList.add('dislikes-count');
+        dislikesCount.textContent = dislikes;
+        dislikesBlock.append(dislikesInput, dislikesCount);
+        const commentsBlock = document.createElement('div');
+        commentsBlock.classList.add('comments-block');
+        const commentsInput = document.createElement('input');
+        commentsInput.classList.add('comments-input')
+        commentsInput.type = 'image';
+        commentsInput.src = '';
+        const commentsCount = document.createElement('a');
+        commentsCount.classList.add('comments-count');
+        commentsCount.textContent = comments;
+        commentsBlock.append(commentsInput, commentsCount);
+        ratingContent.append(likesBlock, dislikesBlock, commentsBlock);
+
+        post.append(header, mainText, content, ratingContent);
         this.parent.appendChild(post);
     }
 }
