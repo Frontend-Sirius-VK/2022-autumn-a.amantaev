@@ -7,8 +7,6 @@ export class MainController {
         view.render();
 
         const postCollection = new PostCollection();
-        postCollection.fetchData().then(() => {
-            view.feed.updatePosts(postCollection.posts);
-        });
+        postCollection.fetchData();
     }
 }

@@ -5,6 +5,7 @@ export class Post {
     }
 
     render() {
+        // TODO переделать с использованием handlebars
         const {text, title, subtitle, author, image_url, video_url, date, likes, dislikes, comments} = this.postModel;
 
         const post = document.createElement('div');

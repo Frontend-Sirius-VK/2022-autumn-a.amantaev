@@ -5,8 +5,6 @@ export class Feed {
     constructor(parent) {
         this.parent = parent;
         this.posts = null;
-        // EventBus.on('posts:got-info', this.updatePosts().bind(this));
-        // eventBus пока еще не работает(
     }
 
     render(container) {
@@ -25,7 +23,7 @@ export class Feed {
         container.appendChild(feed);
     }
 
-    updatePosts(data) {
+    update(data) {
         if (!data) {
             return;
         }
