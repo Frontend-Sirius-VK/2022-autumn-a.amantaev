@@ -7,7 +7,7 @@ export class Feed {
         this.posts = null;
     }
 
-    render(container) {
+    render() {
         const feed = document.createElement('div');
         feed.classList.add('feed');
 
@@ -20,7 +20,7 @@ export class Feed {
             post.render();
         })
 
-        container.appendChild(feed);
+        this.parent.appendChild(feed);
     }
 
     update(data) {

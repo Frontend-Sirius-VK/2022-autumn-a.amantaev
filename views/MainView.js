@@ -4,7 +4,7 @@ import EventBus from "../utils/eventBus.js";
 export class MainView {
     constructor() {
         this.feed = null;
-        EventBus.on('posts:got-info', this.update.bind(this));
+        EventBus.on('posts:got-info', this.updatePosts.bind(this));
     }
 
     render() {
@@ -13,10 +13,10 @@ export class MainView {
         this.feed = new Feed(container);
 
         root.append(container);
-        this.feed.render(container);
+        this.feed.render();
     }
 
-    update(data = {}) {
+    updatePosts(data = {}) {
         if (!data || !Array.isArray(data) || data.length === 0) {
             return;
         }
