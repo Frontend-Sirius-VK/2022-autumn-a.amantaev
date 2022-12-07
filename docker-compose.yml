@@ -46,7 +46,7 @@ services:
     container_name: ${APP_NAME}-express
     build: .
     command: >
-      sh -c "node src/server.js"
+      sh -c "node backend/src/server.js"
     ports:
       - "${APP_PORT}:${APP_PORT}"
     env_file: .env

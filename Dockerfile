@@ -7,4 +7,4 @@ COPY package-lock.json .
 RUN npm ci
 
 COPY . .
-COPY migrations/ ./migrations/
+COPY backend/migrations/ ./migrations/

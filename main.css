@@ -1,4 +1,4 @@
-@import './components/post/post.css';
+@import 'frontend/components/post/post.css';
 
 :root {
     --color-primary: #4B899D;

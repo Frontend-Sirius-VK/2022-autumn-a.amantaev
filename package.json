@@ -2,9 +2,9 @@
   "name": "2022-autumn-a.amantaev",
   "version": "1.0.0",
   "description": "",
-  "main": "src/server.js",
+  "main": "backend/src/server.js",
   "scripts": {
-    "start": "node src/server.js"
+    "start": "node backend/src/server.js"
   },
   "repository": {
     "type": "git",
