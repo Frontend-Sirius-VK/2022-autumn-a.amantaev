@@ -1,5 +1,4 @@
 import {Post} from "../post/post.js";
-import EventBus from "../../utils/eventBus.js";
 
 export class Feed {
     constructor(parent) {
@@ -18,7 +17,7 @@ export class Feed {
         this.posts.forEach((post_data) => {
             const post = new Post(feed, post_data);
             post.render();
-        })
+        });
 
         this.parent.appendChild(feed);
     }
