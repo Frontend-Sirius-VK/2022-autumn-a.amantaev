@@ -21,8 +21,12 @@ app.get('/login', (req, res) => {
 });
 
 app.get('/posts', async (req, res) => {
-    const posts = await db.getPosts();
-    res.json(posts);
+    try {
+        const posts = await db.getPosts();
+        res.json(posts);
+    } catch (e) {
+        res.json([]);
+    }
 });
 
 app.listen(PORT, function () {

@@ -16,7 +16,7 @@ export class MainView {
         this.feed.render();
     }
 
-    updatePosts(data = {}) {
+    updatePosts(data = []) {
         if (!data || !Array.isArray(data) || data.length === 0) {
             return;
         }

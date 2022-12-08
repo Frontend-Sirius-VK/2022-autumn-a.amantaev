@@ -20,8 +20,7 @@
     "morgan": "1.10.0",
     "cors": "2.8.5",
     "dotenv": "16.0.3",
-    "pg": "8.8.0",
-    "redis": "4.3.1"
+    "pg": "8.8.0"
   },
   "homepage": "https://github.com/Frontend-Sirius-VK/2022-autumn-a.amantaev#readme"
 }

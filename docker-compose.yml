@@ -19,19 +19,6 @@ services:
       timeout: 1s
       retries: 30
     restart: unless-stopped
-  redis:
-    container_name: ${APP_NAME}-redis
-    image: redis:7.0.0
-    ports:
-      - "${REDIS_PORT}:6379"
-    extra_hosts:
-      - "host.docker.internal:host-gateway"
-    healthcheck:
-      test: ["CMD", "redis-cli", "ping"]
-      interval: 1s
-      timeout: 1s
-      retries: 30
-    restart: unless-stopped
   flyway:
     image: flyway/flyway:9.3.1
     command: -url=jdbc:postgresql://host.docker.internal:${POSTGRES_PORT}/${POSTGRES_DB} -user=${POSTGRES_USER} -password=${POSTGRES_PASSWORD} migrate
@@ -53,12 +40,9 @@ services:
     environment:
       FLASK_RUN_PORT: ${APP_PORT}
       POSTGRES_HOST: host.docker.internal
-      REDIS_HOST: host.docker.internal
     restart: unless-stopped
     depends_on:
       postgres:
-        condition: service_healthy
-      redis:
         condition: service_healthy
     extra_hosts:
       - "host.docker.internal:host-gateway"
