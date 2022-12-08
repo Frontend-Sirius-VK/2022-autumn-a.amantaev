@@ -13,6 +13,7 @@ const getPosts = async () => {
         return result.rows;
     } catch (error) {
         console.log(error);
+        return [];
     }
 };
 
