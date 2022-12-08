@@ -1,0 +1,14 @@
+@import 'frontend/components/post/post.css';
+
+:root {
+    --color-secondary: #606060;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.hidden {
+    display: none;
+}
