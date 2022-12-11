@@ -1,0 +1,6 @@
+@import "description/description.css";
+@import "statistics/statistics.css";
+
+.about-main-container {
+    display: flex;
+}

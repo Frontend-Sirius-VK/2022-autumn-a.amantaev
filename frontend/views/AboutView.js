@@ -13,6 +13,7 @@ export class AboutView {
     render() {
         const root = document.querySelector('#root');
         const container = document.createElement('div');
+        container.classList.add('about-main-container');
         this.description = new Description(container);
         this.statistics = new Statistics(container);
 

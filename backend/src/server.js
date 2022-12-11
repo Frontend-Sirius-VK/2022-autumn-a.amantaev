@@ -74,19 +74,22 @@ app.patch('/posts/:id', async (req, res) => {
     }
 })
 
+const description = 'VK Team — это миллион возможностей проявить себя. Мы делаем современные и быстрые интернет-сервисы, доступные каждому. На этом канале делимся опытом экосистемы VK, рассказываем о технологиях, наших образовательных проектах и жизни команды.\n' +
+    '\n' +
+    'Смотрите лекции экспертов, митапы, шоу, онлайн-курсы и подкасты: VK Tech Talks, «Oh, my code!», «Будущее, которое мы заслужили» и «Скринкасты». Подписывайтесь, чтобы быть в курсе!'
 app.get('/description', async (req, res) => {
     try {
-        // const posts = await db.getPosts();
-        res.json('posts');
+        res.json(description);
     } catch (e) {
         res.json([]);
     }
 });
 
+const statistics = ['Дата регистрации: 11 мар. 2012 г.', '15 357 808 просмотров']
 app.get('/statistics', async (req, res) => {
     try {
         // const posts = await db.getPosts();
-        res.json(['st', 'rt']);
+        res.json(statistics);
     } catch (e) {
         res.json([]);
     }
