@@ -68,7 +68,7 @@
     height: 20px;
 }
 
-@media (max-width: 1024px) and (orientation: portrait) {
+@media (max-width: 720px), (orientation: portrait) {
     .header {
         margin: 5px 0;
     }

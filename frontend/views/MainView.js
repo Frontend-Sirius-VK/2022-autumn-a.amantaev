@@ -8,6 +8,7 @@ export class MainView {
 
     render() {
         const root = document.querySelector('#root');
+        root.innerHTML = '';
         const container = document.createElement('div');
         const headerContainer = document.createElement('div');
         headerContainer.classList.add('header-container');

@@ -13,3 +13,13 @@
     border-bottom: 1px solid grey;
     font-size: 18px;
 }
+
+@media (max-width: 720px), (orientation: portrait) {
+    .statistic-header {
+        font-size: 40px;
+    }
+
+    .statistic-data {
+        font-size: 44px;
+    }
+}

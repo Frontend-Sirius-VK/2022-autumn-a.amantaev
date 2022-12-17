@@ -56,6 +56,7 @@ export class Header {
         const communityTabLink = document.createElement('a');
         communityTabLink.classList.add('community-tab-a');
         communityTabLink.textContent = 'Сообщество';
+        communityTabLink.href = '/'
         communityTabDiv.append(communityTabLink);
         const aboutTabDiv = document.createElement('div');
         aboutTabDiv.classList.add('about-tab-div');

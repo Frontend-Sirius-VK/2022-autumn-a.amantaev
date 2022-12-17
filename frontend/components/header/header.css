@@ -52,7 +52,7 @@
 .main-tab-div,
 .video-tab-div,
 .community-tab-div,
-.about-tab-div{
+.about-tab-div {
     height: 40px;
     display: flex;
 }
@@ -60,7 +60,7 @@
 .main-tab-a,
 .video-tab-a,
 .community-tab-a,
-.about-tab-a{
+.about-tab-a {
     margin-top: auto;
     margin-bottom: auto;
     font-size: 20px;
@@ -70,4 +70,43 @@
     font-weight: bolder;
     padding: 0 15px;
     text-decoration: none;
+}
+
+@media (max-width: 720px), (orientation: portrait) {
+    .main-header {
+        height: 120px;
+    }
+
+    .sidebar-hamburger-img {
+        width: 100px;
+    }
+
+    .logo-img {
+        height: 60px;
+    }
+
+    .search-input {
+        display: none;
+    }
+
+    .search-btn {
+        height: 100px;
+        width: 100px;
+    }
+
+    .search-img {
+        height: 100%;
+        width: 100%;
+    }
+
+    .sub-header {
+        padding: 15px 50px
+    }
+
+    .main-tab-a,
+    .video-tab-a,
+    .community-tab-a,
+    .about-tab-a {
+        font-size: 36px;
+    }
 }

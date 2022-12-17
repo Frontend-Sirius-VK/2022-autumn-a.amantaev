@@ -1,6 +1,7 @@
 import EventBus from "../utils/eventBus.js";
 import {Statistics} from "../components/statistics/statistics.js";
 import {Description} from "../components/description/description.js";
+import {Header} from "../components/header/header.js";
 
 export class AboutView {
     constructor() {
@@ -13,12 +14,18 @@ export class AboutView {
     render() {
         const root = document.querySelector('#root');
         root.innerHTML = '';
-        const container = document.createElement('div');
-        container.classList.add('about-main-container');
-        this.description = new Description(container);
-        this.statistics = new Statistics(container);
+        const headerContainer = document.createElement('div');
+        headerContainer.classList.add('header-container');
+        const aboutContainer = document.createElement('div');
+        aboutContainer.classList.add('about-main-container');
 
-        root.append(container);
+        const header = new Header(headerContainer);
+        header.render();
+
+        this.description = new Description(aboutContainer);
+        this.statistics = new Statistics(aboutContainer);
+
+        root.append(headerContainer, aboutContainer);
         this.description.render();
         this.statistics.render();
     }
