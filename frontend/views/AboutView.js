@@ -1,6 +1,6 @@
 import EventBus from "../utils/eventBus.js";
-import {Statistics} from "../components/about/statistics/statistics.js";
-import {Description} from "../components/about/description/description.js";
+import {Statistics} from "../components/statistics/statistics.js";
+import {Description} from "../components/description/description.js";
 
 export class AboutView {
     constructor() {
@@ -12,6 +12,7 @@ export class AboutView {
 
     render() {
         const root = document.querySelector('#root');
+        root.innerHTML = '';
         const container = document.createElement('div');
         container.classList.add('about-main-container');
         this.description = new Description(container);
