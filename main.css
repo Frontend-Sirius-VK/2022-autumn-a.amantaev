@@ -1,6 +1,6 @@
 @import 'frontend/components/post/post.css';
 @import './frontend/components/loader/loader.css';
-@import "frontend/components/about/about.css";
+@import 'frontend/components/about/about.css';
 
 :root {
     --color-secondary: #606060;

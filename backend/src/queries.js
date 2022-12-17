@@ -58,11 +58,32 @@ async function updatePost(title, subtitle, text, author, imageUrl, videoUrl, dat
     }
 }
 
+const getDescription = async () => {
+    try {
+        const result = await pool.query('SELECT text FROM descriptions LIMIT(1)');
+        return result.rows[0].text;
+    } catch (error) {
+        console.log(error);
+        return null;
+    }
+};
+
+const getStatistics = async () => {
+    try {
+        const result = await pool.query('SELECT statistic_data.text FROM statistics INNER JOIN statistic_data on statistics.id = statistic_data.statistics_id');
+        return result.rows.map((data) => data.text);
+    } catch (error) {
+        console.log(error);
+        return null;
+    }
+};
 
 module.exports = {
     createPost,
     deletePost,
+    getDescription,
     getPostById,
     getPosts,
+    getStatistics,
     updatePost
 };

@@ -6,7 +6,7 @@ export class DescriptionModel {
     }
 
     fetchData() {
-        return fetch('/description')
+        return fetch('/api/description')
             .then((response) => response.json())
             .then((data) => {
                 this.description = data;

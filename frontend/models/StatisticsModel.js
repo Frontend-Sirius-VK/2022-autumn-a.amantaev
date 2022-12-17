@@ -6,7 +6,7 @@ export class StatisticsModel {
     }
 
     fetchData() {
-        return fetch('/statistics')
+        return fetch('/api/statistics')
             .then((response) => response.json())
             .then((data) => {
                 this.statistics = data;

@@ -72,38 +72,52 @@
     .header {
         margin: 5px 0;
     }
+
     .header-author {
         font-size: 40px;
         margin: 2px 0;
     }
+
     .header-date {
         font-size: 40px;
         margin: 2px 16px;
     }
+
     .video-container {
         display: block;
     }
+
     .video-link {
         display: flex;
     }
+
     .video-title {
         font-size: 22px;
     }
+
     .video-subtitle {
         font-size: 16px;
     }
+
     .image-link {
         margin-left: auto;
         margin-right: auto;
         width: 100%
     }
+
     .rating-content {
         margin: 2px 8px;
     }
-    .like-img, .dislike-img, .comments-img {
+
+    .like-img,
+    .dislike-img,
+    .comments-img {
         height: 60px;
     }
-    .likes-count, .dislikes-count, .comments-count {
+
+    .likes-count,
+    .dislikes-count,
+    .comments-count {
         font-size: 60px;
     }
 }
