@@ -18,12 +18,17 @@ export class AboutView {
         headerContainer.classList.add('header-container');
         const aboutContainer = document.createElement('div');
         aboutContainer.classList.add('about-main-container');
+        const descriptionContainer = document.createElement('div');
+        descriptionContainer.classList.add('description');
+        const statisticsContainer = document.createElement('div');
+        statisticsContainer.classList.add('statistics');
+        aboutContainer.append(descriptionContainer, statisticsContainer);
 
         const header = new Header(headerContainer);
         header.render();
 
-        this.description = new Description(aboutContainer);
-        this.statistics = new Statistics(aboutContainer);
+        this.description = new Description(descriptionContainer);
+        this.statistics = new Statistics(statisticsContainer);
 
         root.append(headerContainer, aboutContainer);
         this.description.render();

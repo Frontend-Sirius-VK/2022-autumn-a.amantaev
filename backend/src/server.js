@@ -12,15 +12,9 @@ app.use(express.static('.'));
 
 const PORT = 3000;
 
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, '.', 'index.html'));
-});
+// app.use(express.static('dist'));
 
-app.get('/about', (req, res) => {
-    res.sendFile(path.join(__dirname, '.', 'index.html'));
-});
-
-app.get('/posts', async (req, res) => {
+app.get('/api/posts', async (req, res) => {
     try {
         const posts = await db.getPosts();
         res.json(posts);
@@ -29,7 +23,7 @@ app.get('/posts', async (req, res) => {
     }
 });
 
-app.get('/posts/:id', async (req, res) => {
+app.get('/api/posts/:id', async (req, res) => {
     try {
         const id = parseInt(req.params.id);
         const result = await db.getPostById(id);
@@ -39,7 +33,7 @@ app.get('/posts/:id', async (req, res) => {
     }
 })
 
-app.post('/posts', async (req, res) => {
+app.post('/api/posts', async (req, res) => {
     try {
         const {title, subtitle, text, author, imageUrl, videoUrl, date, likes, dislikes, comments} = req.body;
         if (title && subtitle && text && author && imageUrl && videoUrl && date && likes && dislikes && comments) {
@@ -53,7 +47,7 @@ app.post('/posts', async (req, res) => {
     }
 })
 
-app.delete('/posts/:id', async (req, res) => {
+app.delete('/api/posts/:id', async (req, res) => {
     try {
         const id = parseInt(req.params.id);
         await db.deletePost(id);
@@ -61,7 +55,7 @@ app.delete('/posts/:id', async (req, res) => {
     }
 })
 
-app.patch('/posts/:id', async (req, res) => {
+app.patch('/api/posts/:id', async (req, res) => {
     try {
         const id = parseInt(req.params.id);
         const {title, subtitle, text, author, imageUrl, videoUrl, date, likes, dislikes, comments} = req.body;

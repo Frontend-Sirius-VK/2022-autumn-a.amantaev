@@ -11,7 +11,7 @@ export class PostCollection {
     }
 
     fetchData() {
-        return fetch('/posts')
+        return fetch('/api/posts')
             .then((response) => {
                 const {status} = response;
 
