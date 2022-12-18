@@ -1,4 +1,4 @@
-import template from './statistics.handlebars';
+import template from "./statistics.handlebars";
 
 export class Statistics {
     constructor(parent) {

@@ -1,4 +1,4 @@
-import {ROUTES} from '../../backend/core/routes.js';
+import {ROUTES} from "../../backend/core/routes.js";
 
 export class Router {
     constructor() {
@@ -9,7 +9,7 @@ export class Router {
         const {target} = event;
         const {tagName} = target;
 
-        if (tagName === 'A') {
+        if (tagName === "A") {
             event.preventDefault();
 
             if (target.href !== undefined) {
@@ -19,7 +19,7 @@ export class Router {
     }
 
     go(pathname) {
-        window.history.pushState({}, '', pathname);
+        window.history.pushState({}, "", pathname);
         this.invokeController();
     }
 
@@ -30,12 +30,12 @@ export class Router {
     }
 
     start() {
-        document.addEventListener('click', this.onDocumentClick);
+        document.addEventListener("click", this.onDocumentClick);
         this.invokeController();
     }
 
     stop() {
-        document.removeEventListener('click', this.onDocumentClick);
+        document.removeEventListener("click", this.onDocumentClick);
     }
 }
 

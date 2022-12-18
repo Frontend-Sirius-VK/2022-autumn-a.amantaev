@@ -6,11 +6,11 @@ export class StatisticsModel {
     }
 
     fetchData() {
-        return fetch('/api/statistics')
+        return fetch("/api/statistics")
             .then((response) => response.json())
             .then((data) => {
                 this.statistics = data;
-                EventBus.emit('statistics:got-info', data);
+                EventBus.emit("statistics:got-info", data);
             });
     }
 }

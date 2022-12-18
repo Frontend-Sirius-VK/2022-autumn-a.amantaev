@@ -1,4 +1,4 @@
-import {MainView} from '../views/MainView.js';
+import {MainView} from "../views/MainView.js";
 import {PostCollection} from "../models/PostCollection.js";
 import EventBus from "../utils/eventBus.js";
 
@@ -8,7 +8,7 @@ export class MainController {
         view.render();
 
         const postCollection = new PostCollection();
-        EventBus.emit('posts:loading');
+        EventBus.emit("posts:loading");
         postCollection.fetchData();
     }
 }

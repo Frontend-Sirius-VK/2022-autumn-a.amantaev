@@ -1,4 +1,4 @@
-import {AboutView} from '../views/AboutView.js';
+import {AboutView} from "../views/AboutView.js";
 import {DescriptionModel} from "../models/DescriptionModel.js";
 import {StatisticsModel} from "../models/StatisticsModel.js";
 

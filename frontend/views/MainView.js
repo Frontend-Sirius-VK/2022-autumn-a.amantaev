@@ -7,13 +7,13 @@ export class MainView {
     }
 
     render() {
-        const root = document.querySelector('#root');
-        root.innerHTML = '';
-        const container = document.createElement('div');
-        const headerContainer = document.createElement('div');
-        headerContainer.classList.add('header-container');
-        const feedContainer = document.createElement('div');
-        feedContainer.classList.add('feed-container');
+        const root = document.querySelector("#root");
+        root.innerHTML = "";
+        const container = document.createElement("div");
+        const headerContainer = document.createElement("div");
+        headerContainer.classList.add("header-container");
+        const feedContainer = document.createElement("div");
+        feedContainer.classList.add("feed-container");
 
         const header = new Header(headerContainer);
         header.render();

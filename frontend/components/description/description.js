@@ -1,4 +1,4 @@
-import template from './description.handlebars';
+import template from "./description.handlebars";
 
 export class Description {
     constructor(parent) {

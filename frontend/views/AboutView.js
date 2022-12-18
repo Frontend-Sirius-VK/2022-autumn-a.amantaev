@@ -7,21 +7,21 @@ export class AboutView {
     constructor() {
         this.description = null;
         this.statistics = null;
-        EventBus.on('description:got-info', this.updateDescription.bind(this));
-        EventBus.on('statistics:got-info', this.updateStatistics.bind(this));
+        EventBus.on("description:got-info", this.updateDescription.bind(this));
+        EventBus.on("statistics:got-info", this.updateStatistics.bind(this));
     }
 
     render() {
-        const root = document.querySelector('#root');
-        root.innerHTML = '';
-        const headerContainer = document.createElement('div');
-        headerContainer.classList.add('header-container');
-        const aboutContainer = document.createElement('div');
-        aboutContainer.classList.add('about-main-container');
-        const descriptionContainer = document.createElement('div');
-        descriptionContainer.classList.add('description');
-        const statisticsContainer = document.createElement('div');
-        statisticsContainer.classList.add('statistics');
+        const root = document.querySelector("#root");
+        root.innerHTML = "";
+        const headerContainer = document.createElement("div");
+        headerContainer.classList.add("header-container");
+        const aboutContainer = document.createElement("div");
+        aboutContainer.classList.add("about-main-container");
+        const descriptionContainer = document.createElement("div");
+        descriptionContainer.classList.add("description");
+        const statisticsContainer = document.createElement("div");
+        statisticsContainer.classList.add("statistics");
         aboutContainer.append(descriptionContainer, statisticsContainer);
 
         const header = new Header(headerContainer);

@@ -1,5 +1,5 @@
 import template from "./error_component.handlebars";
-import image from '../../../backend/images/error.jpg';
+import image from "../../../backend/images/error.jpg";
 
 export class ErrorComponent {
     constructor(parent, data) {

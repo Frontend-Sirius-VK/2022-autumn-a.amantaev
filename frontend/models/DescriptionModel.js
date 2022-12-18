@@ -6,11 +6,11 @@ export class DescriptionModel {
     }
 
     fetchData() {
-        return fetch('/api/description')
+        return fetch("/api/description")
             .then((response) => response.json())
             .then((data) => {
                 this.description = data;
-                EventBus.emit('description:got-info', data);
+                EventBus.emit("description:got-info", data);
             });
     }
 }

@@ -1,5 +1,5 @@
-import {router} from '../routing/Router.js';
+import {router} from "../routing/Router.js";
 
-import '../../main.css';
+import "../../main.css";
 
 router.start();

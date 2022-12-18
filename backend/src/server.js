@@ -1,20 +1,20 @@
-'use strict';
+"use strict";
 
-const express = require('express');
-const morgan = require('morgan');
-const path = require('path');
+const express = require("express");
+const morgan = require("morgan");
+const path = require("path");
 
 const app = express();
-const db = require('./queries')
+const db = require("./queries");
 
-app.use(morgan('dev'));
-app.use(express.static('.'));
+app.use(morgan("dev"));
+app.use(express.static("."));
 
 const PORT = 3000;
 
 // app.use(express.static('dist'));
 
-app.get('/api/posts', async (req, res) => {
+app.get("/api/posts", async (req, res) => {
     try {
         const posts = await db.getPosts();
         res.json(posts);
@@ -23,7 +23,7 @@ app.get('/api/posts', async (req, res) => {
     }
 });
 
-app.get('/api/posts/:id', async (req, res) => {
+app.get("/api/posts/:id", async (req, res) => {
     try {
         const id = parseInt(req.params.id);
         const result = await db.getPostById(id);
@@ -31,9 +31,9 @@ app.get('/api/posts/:id', async (req, res) => {
     } catch (e) {
         res.json(null);
     }
-})
+});
 
-app.post('/api/posts', async (req, res) => {
+app.post("/api/posts", async (req, res) => {
     try {
         const {title, subtitle, text, author, imageUrl, videoUrl, date, likes, dislikes, comments} = req.body;
         if (title && subtitle && text && author && imageUrl && videoUrl && date && likes && dislikes && comments) {
@@ -45,17 +45,17 @@ app.post('/api/posts', async (req, res) => {
     } catch (e) {
         res.json(null);
     }
-})
+});
 
-app.delete('/api/posts/:id', async (req, res) => {
+app.delete("/api/posts/:id", async (req, res) => {
     try {
         const id = parseInt(req.params.id);
         await db.deletePost(id);
     } catch (e) {
     }
-})
+});
 
-app.patch('/api/posts/:id', async (req, res) => {
+app.patch("/api/posts/:id", async (req, res) => {
     try {
         const id = parseInt(req.params.id);
         const {title, subtitle, text, author, imageUrl, videoUrl, date, likes, dislikes, comments} = req.body;
@@ -68,9 +68,9 @@ app.patch('/api/posts/:id', async (req, res) => {
     } catch (e) {
         res.json(null);
     }
-})
+});
 
-app.get('/api/description', async (req, res) => {
+app.get("/api/description", async (req, res) => {
     try {
         const result = await db.getDescription();
         res.json(result);
@@ -79,7 +79,7 @@ app.get('/api/description', async (req, res) => {
     }
 });
 
-app.get('/api/statistics', async (req, res) => {
+app.get("/api/statistics", async (req, res) => {
     try {
         const result = await db.getStatistics();
         res.json(result);

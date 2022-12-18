@@ -1,7 +1,7 @@
-const Pool = require('pg').Pool;
+const Pool = require("pg").Pool;
 const pool = new Pool({
     user: process.env.POSTGRES_USER,
-    host: process.env.POSTGRES_HOST ?? 'localhost',
+    host: process.env.POSTGRES_HOST ?? "localhost",
     database: process.env.POSTGRES_DB,
     password: process.env.POSTGRES_PASSWORD,
     port: process.env.POSTGRES_PORT
@@ -9,8 +9,8 @@ const pool = new Pool({
 
 async function createPost(title, subtitle, text, author, imageUrl, videoUrl, date, likes, dislikes, comments) {
     try {
-        const result = await pool.query('INSERT INTO posts (title, subtitle, text, author, image_url, video_url, \"date\", likes, dislikes, comments) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING id', [title, subtitle, text, author, imageUrl, videoUrl, date, likes, dislikes, comments]);
-        return result.rows[0].id
+        const result = await pool.query("INSERT INTO posts (title, subtitle, text, author, image_url, video_url, \"date\", likes, dislikes, comments) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING id", [title, subtitle, text, author, imageUrl, videoUrl, date, likes, dislikes, comments]);
+        return result.rows[0].id;
     } catch (error) {
         console.log(error);
         return [];
@@ -19,18 +19,18 @@ async function createPost(title, subtitle, text, author, imageUrl, videoUrl, dat
 
 const deletePost = async id => {
     try {
-        await pool.query('DELETE FROM posts WHERE id = $1', [id]);
+        await pool.query("DELETE FROM posts WHERE id = $1", [id]);
         return id;
     } catch (error) {
-        console.log(error)
+        console.log(error);
         return null;
     }
-}
+};
 
 
 const getPosts = async () => {
     try {
-        const result = await pool.query('SELECT id, title, subtitle, text, author, image_url \"imageUrl\", video_url \"videoUrl\", \"date\", likes, dislikes, comments FROM posts');
+        const result = await pool.query("SELECT id, title, subtitle, text, author, image_url \"imageUrl\", video_url \"videoUrl\", \"date\", likes, dislikes, comments FROM posts");
         return result.rows;
     } catch (error) {
         console.log(error);
@@ -40,17 +40,17 @@ const getPosts = async () => {
 
 const getPostById = async id => {
     try {
-        const result = await pool.query('SELECT * FROM posts WHERE id = $1', [id]);
+        const result = await pool.query("SELECT * FROM posts WHERE id = $1", [id]);
         return result.rows[0];
     } catch (error) {
         console.log(error);
         return null;
     }
-}
+};
 
 async function updatePost(title, subtitle, text, author, imageUrl, videoUrl, date, likes, dislikes, comments, id) {
     try {
-        await pool.query('UPDATE posts SET title = $1, subtitle = $2, text = $3, author = $4, image_url = $5, video_url = $6, \"date\" = $7, likes = $8, dislikes = $9, comments = $10 WHERE id = $11', [title, subtitle, text, author, imageUrl, videoUrl, date, likes, dislikes, comments, id]);
+        await pool.query("UPDATE posts SET title = $1, subtitle = $2, text = $3, author = $4, image_url = $5, video_url = $6, \"date\" = $7, likes = $8, dislikes = $9, comments = $10 WHERE id = $11", [title, subtitle, text, author, imageUrl, videoUrl, date, likes, dislikes, comments, id]);
         return id;
     } catch (error) {
         console.log(error);
@@ -60,7 +60,7 @@ async function updatePost(title, subtitle, text, author, imageUrl, videoUrl, dat
 
 const getDescription = async () => {
     try {
-        const result = await pool.query('SELECT text FROM descriptions LIMIT(1)');
+        const result = await pool.query("SELECT text FROM descriptions LIMIT(1)");
         return result.rows[0].text;
     } catch (error) {
         console.log(error);
@@ -70,7 +70,7 @@ const getDescription = async () => {
 
 const getStatistics = async () => {
     try {
-        const result = await pool.query('SELECT statistic_data.text FROM statistics INNER JOIN statistic_data on statistics.id = statistic_data.statistics_id');
+        const result = await pool.query("SELECT statistic_data.text FROM statistics INNER JOIN statistic_data on statistics.id = statistic_data.statistics_id");
         return result.rows.map((data) => data.text);
     } catch (error) {
         console.log(error);

@@ -1,7 +1,7 @@
-import logoPhoto from '../../../backend/images/logo.svg';
-import hamburgerPhoto from '../../../backend/images/hamburger_icon.svg';
-import searchPhoto from '../../../backend/images/search.svg';
-import template from './header.handlebars';
+import logoPhoto from "../../../backend/images/logo.svg";
+import hamburgerPhoto from "../../../backend/images/hamburger_icon.svg";
+import searchPhoto from "../../../backend/images/search.svg";
+import template from "./header.handlebars";
 
 export class Header {
     constructor(parent) {
