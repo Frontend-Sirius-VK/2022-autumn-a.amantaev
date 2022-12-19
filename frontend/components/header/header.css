@@ -10,7 +10,7 @@
 
 .sidebar-hamburger-div {
     height: 40px;
-    padding: 5px
+    margin: 5px
 }
 
 .logo-div {
@@ -32,9 +32,8 @@
 
 .search-input {
     height: 36px;
-    padding: 0;
-    margin-top: auto;
-    margin-bottom: auto;
+    margin: 0 6px 0 0;
+    padding: 0 10px;
 }
 
 .search-btn {
@@ -121,52 +120,10 @@
     margin-top: 0;
 }
 
-.hidden-menu-ticker:checked ~ .btn-menu {
-    left: 160px;
-}
-.hidden-menu-ticker:checked ~ .hidden-menu {
-    left: 0;
-}
-.hidden-menu-ticker:checked ~ .btn-menu span.first {
-    -webkit-transform: rotate(45deg);
-    top: 10px;
-}
-.hidden-menu-ticker:checked ~ .btn-menu span.second {
-    opacity: 0;
-}
-.hidden-menu-ticker:checked ~ .btn-menu span.third {
-    -webkit-transform: rotate(-45deg);
-    top: -10px;
-}
 
-.hidden-menu-block-1,
-.hidden-menu-block-2,
-.hidden-menu-block-subscriptions {
-    padding: 10px 0;
-    font-size: 18px;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-}
 
-li {
-    padding: 5px 0;
-}
-
-.hidden-menu-main,
-.hidden-menu-shorts,
-.hidden-menu-subscriptions,
-.hidden-menu-library,
-.hidden-menu-history,
-.hidden-menu-videos,
-.hidden-menu-after,
-.hidden-menu-channels,
-.hidden-menu-channel {
-    text-decoration: none;
-    color: black;
-}
-
-.hidden-menu-channels {
-    font-weight: bolder;
-    padding: 5px 0 8px 0;
+.sidebar-hamburger-img {
+    width: 40px;
 }
 
 @media (max-width: 720px), (orientation: portrait) {
