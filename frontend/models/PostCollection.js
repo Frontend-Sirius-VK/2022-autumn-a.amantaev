@@ -6,12 +6,16 @@ export const ERROR_TEXT_400 = "Ошибка 400. Проверьте введен
 export const ERROR_TEXT_500 = "Ошибка 500. Сервис не доступен. Обратитесь в поддержку";
 
 export class PostCollection {
-    constructor() {
+    constructor(channelName) {
         this.posts = [];
+        this.channelName = channelName;
     }
 
     fetchData() {
-        return fetch("/api/posts")
+        return fetch("/api/posts?" + new URLSearchParams({
+            channel: this.channelName
+        })
+        )
             .then((response) => {
                 const {status} = response;
 

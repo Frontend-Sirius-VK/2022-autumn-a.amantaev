@@ -1,5 +1,5 @@
 INSERT INTO channels (title, slug)
-VALUES ('VK TEAM', 'vkteamchannel'), ('808', '808media');
+VALUES ('VK TEAM', 'vk-team-channel'), ('808', '808-channel');
 
 INSERT INTO posts (title, subtitle, text, author, image_url, video_url, date, likes, dislikes, comments, channel_id)
 VALUES ('Backend или Frontend: как войти в IT | Новогоднее шоу VK Образование', 'Артур Сардарян — руководитель группы мобильной разработки проекта Юла и преподаватель в образовательных...', 'Входим в новую неделю с новым выпуском нашего шоу. В видео Артур Сардарян делится историями из жизни фронтенд-разработчика в кругу бэкендеров и советами на тему того, как всё-таки войти в IT. Итого уже половину выпусков с нашими спикерами можно найти в плейлисте шоу: приятное', 'VK TEAM', 'https://i.ytimg.com/vi/a3EBSTO41ks/hq720.jpg?sqp=-oaymwEcCOgCEMoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAkNb5SIRVfB72fMnJF3qYojllD7A', 'https://www.youtube.com/watch?v=a3EBSTO41ks&ab_channel=VKTeam', '10 месяцев назад', 0, 0, 0, 1),

@@ -3,13 +3,13 @@ import {DescriptionModel} from "../models/DescriptionModel.js";
 import {StatisticsModel} from "../models/StatisticsModel.js";
 
 export class AboutController {
-    process() {
+    process(channelName) {
         const view = new AboutView();
         view.render();
 
-        const description = new DescriptionModel();
+        const description = new DescriptionModel(channelName);
         description.fetchData();
-        const statistics = new StatisticsModel();
+        const statistics = new StatisticsModel(channelName);
         statistics.fetchData();
     }
 }

@@ -12,11 +12,10 @@ app.use(express.static("."));
 
 const PORT = 3000;
 
-// app.use(express.static('dist'));
-
 app.get("/api/posts", async (req, res) => {
     try {
-        const posts = await db.getPosts();
+        const channel = req.query.channel;
+        const posts = await db.getPosts(channel);
         res.json(posts);
     } catch (e) {
         res.json([]);
@@ -72,7 +71,8 @@ app.patch("/api/posts/:id", async (req, res) => {
 
 app.get("/api/description", async (req, res) => {
     try {
-        const result = await db.getDescription();
+        const channel = req.query.channel;
+        const result = await db.getDescription(channel);
         res.json(result);
     } catch (e) {
         res.json([]);
@@ -81,7 +81,8 @@ app.get("/api/description", async (req, res) => {
 
 app.get("/api/statistics", async (req, res) => {
     try {
-        const result = await db.getStatistics();
+        const channel = req.query.channel;
+        const result = await db.getStatistics(channel);
         res.json(result);
     } catch (e) {
         res.json([]);

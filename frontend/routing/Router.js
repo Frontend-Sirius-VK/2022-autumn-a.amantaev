@@ -23,10 +23,27 @@ export class Router {
         this.invokeController();
     }
 
+    getChannel() {
+        const pathParser = window.location.pathname.split("/");
+        let channel;
+        if (pathParser[1] !== undefined) {
+            channel = pathParser[2];
+        }
+        return channel;
+    }
+
     invokeController() {
-        const ControllerClass = ROUTES[window.location.pathname];
+        const channel = this.getChannel();
+        const {pathname} = window.location;
+        const result = ROUTES.find((route) => {
+            const regexp = new RegExp(route.path );
+            const matches = pathname.match(regexp);
+
+            return Boolean(matches);
+        });
+        const ControllerClass = result.controller;
         const controller = new ControllerClass();
-        controller.process();
+        controller.process(channel);
     }
 
     start() {

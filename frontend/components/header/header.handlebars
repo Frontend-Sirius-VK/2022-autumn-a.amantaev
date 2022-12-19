@@ -1,6 +1,30 @@
 <div class="main-header">
+
     <div class="sidebar-hamburger-div">
-        <img class="sidebar-hamburger-img" src={{hamburgerPhoto}}>
+        <input type="checkbox" id="hmt" class="hidden-menu-ticker">
+        <label class="btn-menu" for="hmt">
+            <span class="first"></span>
+            <span class="second"></span>
+            <span class="third"></span>
+        </label>
+        <ul class="hidden-menu">
+            <div class="hidden-menu-block-1">
+                <li><a class="hidden-menu-main" href="">Главная</a></li>
+                <li><a class="hidden-menu-shorts" href="">Shorts</a></li>
+                <li><a class="hidden-menu-subscriptions" href="">Подписки</a></li>
+            </div>
+            <div class="hidden-menu-block-2">
+                <li><a class="hidden-menu-library" href="">Библиотека</a></li>
+                <li><a class="hidden-menu-history" href="">История</a></li>
+                <li><a class="hidden-menu-videos" href="">Ваши видео</a></li>
+                <li><a class="hidden-menu-after" href="">Смотреть позже</a></li>
+            </div>
+            <div class="hidden-menu-block-subscriptions">
+                <div class="hidden-menu-channels">Подписки</div>
+                <li><a class="hidden-menu-channel" href="/channel/vk-team-channel/">VK TEAM</a></li>
+                <li><a class="hidden-menu-channel" href="/channel/808-channel/">808</a></li>
+            </div>
+        </ul>
     </div>
     <div class="logo-div">
         <img class="logo-img" src={{logoPhoto}}>
@@ -20,9 +44,9 @@
         <a class="video-tab-a">Видео</a>
     </div>
     <div class="community-tab-div">
-        <a class="community-tab-a" href="/">Сообщество</a>
+        <a class="community-tab-a" href=".">Сообщество</a>
     </div>
     <div class="about-tab-div">
-        <a class="about-tab-a" href="/about">О канале</a>
+        <a class="about-tab-a" href="about">О канале</a>
     </div>
 </div>

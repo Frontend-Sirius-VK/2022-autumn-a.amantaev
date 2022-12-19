@@ -1,12 +1,15 @@
 import EventBus from "../utils/eventBus.js";
 
 export class StatisticsModel {
-    constructor() {
+    constructor(channelName) {
         this.statistics = [];
+        this.channelName = channelName;
     }
 
     fetchData() {
-        return fetch("/api/statistics")
+        return fetch("/api/statistics?" + new URLSearchParams({
+            channel: this.channelName
+        }))
             .then((response) => response.json())
             .then((data) => {
                 this.statistics = data;

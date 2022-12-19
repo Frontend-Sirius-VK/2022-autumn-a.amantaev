@@ -4,9 +4,10 @@ import {Description} from "../components/description/description.js";
 import {Header} from "../components/header/header.js";
 
 export class AboutView {
-    constructor() {
+    constructor(channelName) {
         this.description = null;
         this.statistics = null;
+
         EventBus.on("description:got-info", this.updateDescription.bind(this));
         EventBus.on("statistics:got-info", this.updateStatistics.bind(this));
     }

@@ -1,7 +1,7 @@
 import {Feed} from "../components/feed/feed.js";
 import {Header} from "../components/header/header.js";
 
-export class MainView {
+export class ChannelView {
     constructor() {
         this.feed = null;
     }

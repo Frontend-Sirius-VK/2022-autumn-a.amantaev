@@ -28,10 +28,9 @@ const deletePost = async id => {
 };
 
 
-const getPosts = async () => {
+const getPosts = async channel => {
     try {
-        const channel_id = 2;
-        const result = await pool.query("SELECT id, title, subtitle, text, author, image_url \"imageUrl\", video_url \"videoUrl\", \"date\", likes, dislikes, comments, channel_id FROM posts WHERE channel_id = $1", [channel_id]);
+        const result = await pool.query("SELECT posts.id, posts.title, subtitle, text, author, image_url \"imageUrl\", video_url \"videoUrl\", \"date\", likes, dislikes, comments, channel_id FROM posts INNER JOIN channels on channels.id = posts.channel_id WHERE channels.slug = $1", [channel]);
         return result.rows;
     } catch (error) {
         console.log(error);
@@ -59,10 +58,9 @@ async function updatePost(title, subtitle, text, author, imageUrl, videoUrl, dat
     }
 }
 
-const getDescription = async () => {
+const getDescription = async channel => {
     try {
-        const channel_id = 2;
-        const result = await pool.query("SELECT text FROM descriptions WHERE channel_id = $1 LIMIT(1)", [channel_id]);
+        const result = await pool.query("SELECT descriptions.text FROM descriptions INNER JOIN channels on channels.id = descriptions.channel_id WHERE channels.slug = $1 LIMIT(1)", [channel]);
         return result.rows[0].text;
     } catch (error) {
         console.log(error);
@@ -70,10 +68,9 @@ const getDescription = async () => {
     }
 };
 
-const getStatistics = async () => {
+const getStatistics = async channel => {
     try {
-        const channel_id = 2;
-        const result = await pool.query("SELECT text FROM statistic_data WHERE channel_id = $1", [channel_id]);
+        const result = await pool.query("SELECT statistic_data.text FROM statistic_data INNER JOIN channels on channels.id = statistic_data.channel_id WHERE channels.slug = $1", [channel]);
         return result.rows.map((data) => data.text);
     } catch (error) {
         console.log(error);

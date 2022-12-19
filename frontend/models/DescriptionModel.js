@@ -1,12 +1,15 @@
 import EventBus from "../utils/eventBus.js";
 
 export class DescriptionModel {
-    constructor() {
+    constructor(channelName) {
         this.description = null;
+        this.channelName = channelName;
     }
 
     fetchData() {
-        return fetch("/api/description")
+        return fetch("/api/description?" + new URLSearchParams({
+            channel: this.channelName
+        }))
             .then((response) => response.json())
             .then((data) => {
                 this.description = data;
