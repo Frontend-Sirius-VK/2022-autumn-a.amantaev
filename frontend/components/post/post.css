@@ -68,6 +68,10 @@
     height: 20px;
 }
 
+.likes-count, .dislikes-count, .comments-count {
+    padding: 0 8px 0 2px;
+}
+
 @media (max-width: 720px), (orientation: portrait) {
     .header {
         margin: 5px 0;

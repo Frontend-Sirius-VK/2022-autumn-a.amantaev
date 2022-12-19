@@ -7,9 +7,9 @@ const pool = new Pool({
     port: process.env.POSTGRES_PORT
 });
 
-async function createPost(title, subtitle, text, author, imageUrl, videoUrl, date, likes, dislikes, comments) {
+async function createPost(title, subtitle, text, author, imageUrl, videoUrl, date, likes, dislikes, comments, channel_id) {
     try {
-        const result = await pool.query("INSERT INTO posts (title, subtitle, text, author, image_url, video_url, \"date\", likes, dislikes, comments) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING id", [title, subtitle, text, author, imageUrl, videoUrl, date, likes, dislikes, comments]);
+        const result = await pool.query("INSERT INTO posts (title, subtitle, text, author, image_url, video_url, \"date\", likes, dislikes, comments, channel_id) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING id", [title, subtitle, text, author, imageUrl, videoUrl, date, likes, dislikes, comments, channel_id]);
         return result.rows[0].id;
     } catch (error) {
         console.log(error);
@@ -30,7 +30,8 @@ const deletePost = async id => {
 
 const getPosts = async () => {
     try {
-        const result = await pool.query("SELECT id, title, subtitle, text, author, image_url \"imageUrl\", video_url \"videoUrl\", \"date\", likes, dislikes, comments FROM posts");
+        const channel_id = 2;
+        const result = await pool.query("SELECT id, title, subtitle, text, author, image_url \"imageUrl\", video_url \"videoUrl\", \"date\", likes, dislikes, comments, channel_id FROM posts WHERE channel_id = $1", [channel_id]);
         return result.rows;
     } catch (error) {
         console.log(error);
@@ -60,7 +61,8 @@ async function updatePost(title, subtitle, text, author, imageUrl, videoUrl, dat
 
 const getDescription = async () => {
     try {
-        const result = await pool.query("SELECT text FROM descriptions LIMIT(1)");
+        const channel_id = 2;
+        const result = await pool.query("SELECT text FROM descriptions WHERE channel_id = $1 LIMIT(1)", [channel_id]);
         return result.rows[0].text;
     } catch (error) {
         console.log(error);
@@ -70,7 +72,8 @@ const getDescription = async () => {
 
 const getStatistics = async () => {
     try {
-        const result = await pool.query("SELECT statistic_data.text FROM statistics INNER JOIN statistic_data on statistics.id = statistic_data.statistics_id");
+        const channel_id = 2;
+        const result = await pool.query("SELECT text FROM statistic_data WHERE channel_id = $1", [channel_id]);
         return result.rows.map((data) => data.text);
     } catch (error) {
         console.log(error);
