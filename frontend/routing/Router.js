@@ -23,17 +23,13 @@ export class Router {
         this.invokeController();
     }
 
-    getChannel() {
+    invokeController() {
         const pathParser = window.location.pathname.split("/");
         let channel;
         if (pathParser[1] !== undefined) {
             channel = pathParser[2];
         }
-        return channel;
-    }
 
-    invokeController() {
-        const channel = this.getChannel();
         const {pathname} = window.location;
         const result = ROUTES.find((route) => {
             const regexp = new RegExp(route.path );
@@ -48,6 +44,7 @@ export class Router {
 
     start() {
         document.addEventListener("click", this.onDocumentClick);
+        window.addEventListener("popstate", this.invokeController);
         this.invokeController();
     }
 
