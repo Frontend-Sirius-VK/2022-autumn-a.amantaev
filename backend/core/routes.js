@@ -1,5 +1,6 @@
 import {AboutController} from "../../frontend/controllers/AboutController.js";
 import {ChannelController} from "../../frontend/controllers/ChannelController.js";
+import {MainController} from "../../frontend/controllers/MainController.js";
 
 export const ROUTES = [
     {
@@ -11,7 +12,7 @@ export const ROUTES = [
         controller: ChannelController
     },
     {
-        path: "",
-        controller: ChannelController
+        path: "/",
+        controller: MainController
     }
 ];

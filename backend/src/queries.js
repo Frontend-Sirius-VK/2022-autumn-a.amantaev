@@ -38,6 +38,16 @@ const getPosts = async channel => {
     }
 };
 
+const getAllPosts = async () => {
+    try {
+        const result = await pool.query("SELECT posts.id, posts.title, subtitle, text, author, image_url \"imageUrl\", video_url \"videoUrl\", \"date\", likes, dislikes, comments, channel_id FROM posts");
+        return result.rows;
+    } catch (error) {
+        console.log(error);
+        return [];
+    }
+};
+
 const getPostById = async id => {
     try {
         const result = await pool.query("SELECT * FROM posts WHERE id = $1", [id]);
@@ -81,6 +91,7 @@ const getStatistics = async channel => {
 module.exports = {
     createPost,
     deletePost,
+    getAllPosts,
     getDescription,
     getPostById,
     getPosts,

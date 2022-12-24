@@ -15,7 +15,13 @@ const PORT = 3000;
 app.get("/api/posts", async (req, res) => {
     try {
         const channel = req.query.channel;
-        const posts = await db.getPosts(channel);
+        let posts = [];
+        if (channel) {
+            posts = await db.getPosts(channel);
+        } else {
+            posts = await db.getAllPosts();
+        }
+
         res.json(posts);
     } catch (e) {
         res.json([]);

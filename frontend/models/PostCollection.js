@@ -13,7 +13,7 @@ export class PostCollection {
 
     fetchData() {
         return fetch("/api/posts?" + new URLSearchParams({
-            channel: this.channelName
+            channel: this.channelName || ""
         })
         )
             .then((response) => {
