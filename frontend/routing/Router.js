@@ -1,4 +1,4 @@
-import {ROUTES} from '../../backend/core/routes.js';
+import {ROUTES} from "../../backend/core/routes.js";
 
 export class Router {
     constructor() {
@@ -9,7 +9,7 @@ export class Router {
         const {target} = event;
         const {tagName} = target;
 
-        if (tagName === 'A') {
+        if (tagName === "A") {
             event.preventDefault();
 
             if (target.href !== undefined) {
@@ -19,23 +19,37 @@ export class Router {
     }
 
     go(pathname) {
-        window.history.pushState({}, '', pathname);
+        window.history.pushState({}, "", pathname);
         this.invokeController();
     }
 
     invokeController() {
-        const ControllerClass = ROUTES[window.location.pathname];
+        const pathParser = window.location.pathname.split("/");
+        let channel;
+        if (pathParser[1] !== undefined) {
+            channel = pathParser[2];
+        }
+
+        const {pathname} = window.location;
+        const result = ROUTES.find((route) => {
+            const regexp = new RegExp(route.path );
+            const matches = pathname.match(regexp);
+
+            return Boolean(matches);
+        });
+        const ControllerClass = result.controller;
         const controller = new ControllerClass();
-        controller.process();
+        controller.process(channel);
     }
 
     start() {
-        document.addEventListener('click', this.onDocumentClick);
+        document.addEventListener("click", this.onDocumentClick);
+        window.addEventListener("popstate", this.invokeController);
         this.invokeController();
     }
 
     stop() {
-        document.removeEventListener('click', this.onDocumentClick);
+        document.removeEventListener("click", this.onDocumentClick);
     }
 }
 

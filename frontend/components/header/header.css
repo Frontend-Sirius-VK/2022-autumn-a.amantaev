@@ -1,0 +1,166 @@
+.header-container {
+    position: sticky;
+    top: 0;
+    background: white;
+}
+
+.main-header {
+    display: flex;
+}
+
+.sidebar-hamburger-div {
+    height: 40px;
+    margin: 5px
+}
+
+.logo-div {
+    display: flex;
+    padding: 0 0 0 40px;
+}
+
+.logo-img {
+    height: 25px;
+    padding: 5px 50px 5px 10px;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.search-box {
+    padding: 5px;
+    display: flex;
+}
+
+.search-input {
+    height: 36px;
+    margin: 0 6px 0 0;
+    padding: 0 10px;
+}
+
+.search-btn {
+    height: 40px;
+    width: 40px;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.sub-header {
+    display: flex;
+    padding: 0 50px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.main-tab-div,
+.video-tab-div,
+.community-tab-div,
+.about-tab-div {
+    height: 40px;
+    display: flex;
+}
+
+.main-tab-a,
+.video-tab-a,
+.community-tab-a,
+.about-tab-a {
+    margin-top: auto;
+    margin-bottom: auto;
+    font-size: 20px;
+    text-align: center;
+    color: var(--color-secondary);
+    text-transform: uppercase;
+    font-weight: bolder;
+    padding: 0 15px;
+    text-decoration: none;
+}
+
+.hidden-menu {
+    display: block;
+    position: fixed;
+    list-style:none;
+    padding: 10px;
+    margin: 0;
+    box-sizing: border-box;
+    width: 200px;
+    background-color: #eee;
+    height: 100%;
+    top: 0;
+    left: -200px;
+    transition: left .2s;
+    z-index: 2;
+    -webkit-transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+}
+
+.hidden-menu-ticker {
+    display: none;
+}
+
+.btn-menu {
+    color: #fff;
+    background-color: #666;
+    padding: 5px;
+    position: fixed;
+    top: 5px;
+    left: 5px;
+    cursor: pointer;
+    transition: left .23s;
+    z-index: 3;
+    width: 25px;
+    -webkit-transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+}
+.btn-menu span {
+    display: block;
+    height: 5px;
+    background-color: #fff;
+    margin: 5px 0 0;
+    transition: all .1s linear .23s;
+    position: relative;
+}
+.btn-menu span.first {
+    margin-top: 0;
+}
+
+
+
+.sidebar-hamburger-img {
+    width: 40px;
+}
+
+@media (max-width: 720px), (orientation: portrait) {
+    .main-header {
+        height: 120px;
+    }
+
+    .sidebar-hamburger-img {
+        width: 100px;
+    }
+
+    .logo-img {
+        height: 60px;
+    }
+
+    .search-input {
+        display: none;
+    }
+
+    .search-btn {
+        height: 100px;
+        width: 100px;
+    }
+
+    .search-img {
+        height: 100%;
+        width: 100%;
+    }
+
+    .sub-header {
+        padding: 15px 50px
+    }
+
+    .main-tab-a,
+    .video-tab-a,
+    .community-tab-a,
+    .about-tab-a {
+        font-size: 36px;
+    }
+}

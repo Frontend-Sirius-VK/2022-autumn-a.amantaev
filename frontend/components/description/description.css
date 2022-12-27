@@ -1,0 +1,22 @@
+.description {
+    margin: 10px 80px 10px 20px;
+    width: 75%;
+}
+
+.description-header {
+    padding: 10px 5px;
+}
+
+.description-text {
+    padding: 5px;
+}
+
+@media (max-width: 720px), (orientation: portrait) {
+    .description-header {
+        font-size: 40px;
+    }
+
+    .description-text {
+        font-size: 40px;
+    }
+}

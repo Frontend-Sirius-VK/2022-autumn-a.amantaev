@@ -1,0 +1,42 @@
+<div class="post">
+    <div class="header">
+        <a class="header-author">{{author}}</a>
+        <a class="header-date">{{date}}</a>
+    </div>
+    <div class="text">
+        {{text}}
+    </div>
+    <div class="video-container">
+        <a class="video-link" href={{videoUrl}}>
+            <img class="image-link" src={{imageUrl}}>
+        </a>
+        <div class="video-content">
+            <div class="video-title">
+                {{title}}
+            </div>
+            <div class="video-subtitle">
+                {{subtitle}}
+            </div>
+        </div>
+    </div>
+    <div class="rating-content">
+        <div class="likes-block">
+            <button class="likes-button">
+                <img class="like-img" src={{likeUrl}}>
+            </button>
+            <a class="likes-count">{{likes}}</a>
+        </div>
+        <div class="dislikes-block">
+            <button class="dislikes-button">
+                <img class="dislike-img" src={{dislikeUrl}}>
+            </button>
+            <a class="likes-count">{{dislikes}}</a>
+        </div>
+        <div class="comments-block">
+            <button class="comments-button">
+                <img class="comments-img" src={{commentUrl}}>
+            </button>
+            <a class="comments-count">{{comments}}</a>
+        </div>
+    </div>
+</div>

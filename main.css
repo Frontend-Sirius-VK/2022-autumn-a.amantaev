@@ -1,4 +1,8 @@
 @import 'frontend/components/post/post.css';
+@import './frontend/components/loader/loader.css';
+@import './frontend/components/header/header.css';
+@import './frontend/components/sidebar/sidebar.css';
+@import 'frontend/components/about/about.css';
 
 :root {
     --color-secondary: #606060;

@@ -1,0 +1,25 @@
+.statistics {
+    margin: 10px 80px 10px 20px;
+    width: 25%;
+}
+
+.statistic-header {
+    padding: 10px 5px;
+    border-bottom: 1px solid grey;
+}
+
+.statistic-data {
+    padding: 2px 5px;
+    border-bottom: 1px solid grey;
+    font-size: 18px;
+}
+
+@media (max-width: 720px), (orientation: portrait) {
+    .statistic-header {
+        font-size: 40px;
+    }
+
+    .statistic-data {
+        font-size: 44px;
+    }
+}
